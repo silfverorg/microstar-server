@@ -1,0 +1,27 @@
+{
+  "name": "microstar-server",
+  "version": "0.0.1",
+  "description": "Server for microstar",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/br0r/microstar-server.git"
+  },
+  "author": "Viktor Silfverström",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/br0r/microstar-server/issues"
+  },
+  "homepage": "https://github.com/br0r/microstar-server#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "ramda": "^0.17.1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "supertest": "^1.1.0"
+  }
+}
