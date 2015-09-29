@@ -16,7 +16,6 @@ router.post('/', (req, res) => {
   }
   trackModule.track(event, data)
   .then((result) => {
-    console.error('result is', result);
     res.json(result);
   })
   .catch((err) => {
