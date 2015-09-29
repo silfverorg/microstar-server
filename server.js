@@ -1,10 +1,24 @@
 import express from 'express';
 import config from './config';
-import {microstarTrack} from 'microstar-track'
+import {TrackRouter} from './src/routers';
+import bodyParser from 'body-parser';
+import morgan from 'morgan'
 
-const VERSION = '0.0.1';
+const VERSION = '0.0.2';
 
 const app = express();
+app.use((req, res, next) => {
+  //FIXME This is bad implementation. But works.
+  //This crashes the whole server when data isn't json
+  req.headers['content-type'] = 'application/json';
+  //req.headers['content-type'] = req.headers['content-type'] || 'application/json';
+  next();
+});
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(morgan('dev'));
+
 
 app.get('/', (req, res) => {
     res.json({
@@ -13,10 +27,11 @@ app.get('/', (req, res) => {
     });
 });
 
-app.use('/track', trackModule);
+app.use('/track', TrackRouter(config.db));
 
 if (require.main === module) {
     app.listen(config.server.port);
+    console.log('Started server');
 }
 
 export default app;
