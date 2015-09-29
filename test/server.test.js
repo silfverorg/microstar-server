@@ -11,7 +11,7 @@ describe('Server Suite', () => {
             .expect('Content-Type', /json/)
             .expect(200, {
                 status: 200,
-                server: '0.0.2',
+                version: '0.0.2',
             }, done);
     });
 });

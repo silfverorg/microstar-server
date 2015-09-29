@@ -17,7 +17,6 @@ describe('Track API Suite', () => {
             .expect('Content-Type', /json/)
             .expect(200, {
                 status: 200,
-                message: 'You created an event!',
             }, done);
     });
 });
