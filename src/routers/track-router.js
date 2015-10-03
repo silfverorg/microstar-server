@@ -1,5 +1,5 @@
 import express from 'express';
-import TrackModule from 'microstar-track';
+import {TrackModule} from 'microstar-track';
 
 let trackModule;
 const router = express.Router();
@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
   const event = body.event;
   const data = body.data;
   if (!event) {
-    return res.json({
+      return res.status(400).json({
       status: 400,
       error: 'Invalid event'
     });
@@ -20,7 +20,10 @@ router.post('/', (req, res) => {
   })
   .catch((err) => {
     console.error('An error with tracking API', err.stack);
-    res.status(500).end();
+      res.status(500).json({
+          status: 500,
+          error: err
+      });
   });
 });
 

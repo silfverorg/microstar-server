@@ -1,6 +1,6 @@
 import express from 'express';
 import config from './config';
-import {TrackRouter} from './src/routers';
+import {TrackRouter, FetchRouter} from './src/routers';
 import bodyParser from 'body-parser';
 import morgan from 'morgan'
 
@@ -28,10 +28,11 @@ app.get('/', (req, res) => {
 });
 
 app.use('/track', TrackRouter(config.db));
+app.use('/fetch', FetchRouter(config.db));
 
 if (require.main === module) {
     app.listen(config.server.port);
-    console.log('Started server');
+    console.log('Started server on ' + config.server.port);
 }
 
 export default app;
