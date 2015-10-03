@@ -1,6 +1,6 @@
 {
   "name": "microstar-server",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Server for microstar",
   "main": "index.js",
   "scripts": {
