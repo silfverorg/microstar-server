@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/br0r/microstar-server.git"
+    "url": "git+https://github.com/silfverorg/microstar-server.git"
   },
   "author": "Viktor Silfverström",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/br0r/microstar-server/issues"
+    "url": "https://github.com/silfverorg/microstar-server/issues"
   },
-  "homepage": "https://github.com/br0r/microstar-server#readme",
+  "homepage": "https://github.com/silfverorg/microstar-server#readme",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
