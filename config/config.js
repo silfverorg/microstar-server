@@ -4,6 +4,6 @@ export default {
     },
     db: {
       host: 'localhost',
-      port: 32775
+      port: '32769',
     }
 };

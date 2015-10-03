@@ -1,14 +1,14 @@
 import config from './config';
-import config.test from './config.test';
+import configTest from './config.test';
 
 var cases = {
   'dev': config,
   'development': config,
-  'test': config.test,
+  'test': configTest,
   'default': config,
 };
 
 export function getConfig(type) {
-  const t = type ? type.toLower() : 'default';
+  const t = type ? type.toLowerCase() : 'default';
   return cases[t];
 };

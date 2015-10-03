@@ -4,7 +4,7 @@
   "description": "Server for microstar",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel/register",
+    "test": "NODE_ENV=test mocha --compilers js:babel/register",
     "start": "babel-node server.js",
     "watch": "nodemon --exec npm run babel-node -- server.js",
     "babel-node": "babel-node --stage 0"
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "babel": "^5.8.23",
+    "should": "^7.1.0",
     "supertest": "^1.1.0"
   }
 }

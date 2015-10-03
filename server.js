@@ -1,10 +1,12 @@
 import express from 'express';
-import config from './config';
+import {getConfig} from './config';
 import {TrackRouter, FetchRouter} from './src/routers';
 import bodyParser from 'body-parser';
 import morgan from 'morgan'
 
 const VERSION = '0.0.2';
+
+const config = getConfig(process.env.NODE_ENV);
 
 const app = express();
 app.use((req, res, next) => {
