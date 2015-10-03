@@ -2,6 +2,10 @@
 
 Public server for microstar API
 
+## Docs
+
+[API](./docs/API.md)
+
 ## Install
 
 ```
