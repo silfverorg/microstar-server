@@ -4,7 +4,8 @@ import {TrackRouter, FetchRouter} from './src/routers';
 import bodyParser from 'body-parser';
 import morgan from 'morgan'
 
-const VERSION = '0.0.2';
+import pjson from './package.json';
+const VERSION = pjson.version;
 
 const config = getConfig(process.env.NODE_ENV);
 
@@ -45,6 +46,7 @@ app.use('/fetch', FetchRouter(config.db));
 
 if (require.main === module) {
     app.listen(config.server.port);
+    console.log('Server is version ' + VERSION);
     console.log('Started server on ' + config.server.port);
 }
 
