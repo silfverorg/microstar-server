@@ -1,5 +1,6 @@
 import request from 'supertest';
 import server from '../server';
+import pjson from '../package.json';
 
 describe('Server Suite', () => {
     before(() => {
@@ -11,7 +12,7 @@ describe('Server Suite', () => {
             .expect('Content-Type', /json/)
             .expect(200, {
                 status: 200,
-                version: '0.0.2',
+                version: pjson.version,
             }, done);
     });
 });
