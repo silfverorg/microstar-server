@@ -1,2 +1,7 @@
-export TrackRouter from './track-router.js';
-export FetchRouter from './fetch-router.js';
+import TrackRouter from './track-router';
+import FetchRouter from './fetch-router';
+
+export default {
+  TrackRouter,
+  FetchRouter
+}
