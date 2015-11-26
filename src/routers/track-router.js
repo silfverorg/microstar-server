@@ -8,13 +8,22 @@ router.post('/', (req, res) => {
   const body = req.body;
   const event = body.event;
   const data = body.data;
+  const keys = Object.keys(body);
+  const $_vars = {}
+  for(var i = 0; i < keys.length; i +=1 ) {
+    const key = keys[i];
+    if (/^\$\_/.test(key)) {
+      $_vars[key] = body[key];
+    }
+  }
+
   if (!event) {
       return res.status(400).json({
       status: 400,
       error: 'Invalid event'
     });
   }
-  trackModule.track(event, data)
+  trackModule.track(event, data, $_vars)
   .then((result) => {
     res.json(result);
   })

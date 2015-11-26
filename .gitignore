@@ -28,3 +28,5 @@ node_modules
 
 *.swp
 *.tern-port
+config/config.js
+config/config.test.js
