@@ -9,8 +9,8 @@ describe('Track API Suite', () => {
         request(server)
             .post('/track')
             .send({
-                event: 'My event',
-                data: {
+                event_name: 'My event',
+                event_data: {
                     id: 1,
                 },
             })
