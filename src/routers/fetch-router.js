@@ -5,7 +5,11 @@ let fetchModule;
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    fetchModule.getAll()
+    const payload = {
+        limit: +req.query.limit || null,
+    };
+
+    fetchModule.getAll(payload)
         .then((data) => {
             res.status(200).json({
                 status: 200,

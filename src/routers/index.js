@@ -1,7 +1,7 @@
 import TrackRouter from './track-router';
 import FetchRouter from './fetch-router';
 
-export default {
+export {
   TrackRouter,
   FetchRouter
 }

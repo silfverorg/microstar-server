@@ -26,7 +26,6 @@
     "ramda": "^0.17.1"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
     "should": "^7.1.0",
     "supertest": "^1.1.0"
   }
