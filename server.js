@@ -52,8 +52,8 @@ if (require.main === module) {
     RethinkdbWebsocketServer.listen({
       httpServer: httpServer,
       httpPath: '/db',
-      dbHost: 'localhost',
-      dbPort: 32769,
+      dbHost: config.db.host,
+      dbPort: config.db.port,
       unsafelyAllowAnyQuery: true,
     });
     httpServer.listen(config.server.port);
