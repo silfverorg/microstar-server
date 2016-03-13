@@ -3,8 +3,10 @@ import {getConfig} from './config';
 import {TrackRouter, FetchRouter} from './src/routers';
 import bodyParser from 'body-parser';
 import morgan from 'morgan'
+import http from 'http';
 
 import pjson from './package.json';
+const RethinkdbWebsocketServer = require('rethinkdb-websocket-server');
 const VERSION = pjson.version;
 
 const config = getConfig(process.env.NODE_ENV);
@@ -45,7 +47,16 @@ app.use('/track', TrackRouter(config.db));
 app.use('/fetch', FetchRouter(config.db));
 
 if (require.main === module) {
-    app.listen(config.server.port);
+    const httpServer = http.createServer(app);
+
+    RethinkdbWebsocketServer.listen({
+      httpServer: httpServer,
+      httpPath: '/db',
+      dbHost: 'localhost',
+      dbPort: 32769,
+      unsafelyAllowAnyQuery: true,
+    });
+    httpServer.listen(config.server.port);
     console.log('Server is version ' + VERSION);
     console.log('Started server on ' + config.server.port);
 }
