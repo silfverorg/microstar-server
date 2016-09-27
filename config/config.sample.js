@@ -3,7 +3,6 @@ module.exports = {
         port: '3000'
     },
     db: {
-      host: 'localhost',
-      port: '29015',
+      dburl: 'mongodb://192.168.99.102:27017/microstar',
     }
 };
