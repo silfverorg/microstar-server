@@ -1,7 +1,6 @@
-import TrackRouter from './track-router';
-import FetchRouter from './fetch-router';
+const TrackRouter = require('./track-router');
+const FetchRouter = require('./fetch-router');
 
-export {
-  TrackRouter,
-  FetchRouter
-}
+
+exports.TrackRouter = TrackRouter;
+exports.FetchRouter = FetchRouter;

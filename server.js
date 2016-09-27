@@ -1,10 +1,10 @@
-import express from 'express';
-import {getConfig} from './config';
-import {TrackRouter, FetchRouter} from './src/routers';
-import bodyParser from 'body-parser';
-import morgan from 'morgan'
+const express = require('express');
+const {getConfig} = require('./config');
+const {TrackRouter, FetchRouter} = require('./src/routers');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
-import pjson from './package.json';
+const pjson = require('./package.json');
 const VERSION = pjson.version;
 
 const config = getConfig(process.env.NODE_ENV);
@@ -15,6 +15,12 @@ app.use((req, res, next) => {
   //This crashes the whole server when data isn't json
   req.headers['content-type'] = 'application/json';
   //req.headers['content-type'] = req.headers['content-type'] || 'application/json';
+  next();
+});
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
@@ -50,4 +56,4 @@ if (require.main === module) {
     console.log('Started server on ' + config.server.port);
 }
 
-export default app;
+module.exports = app;

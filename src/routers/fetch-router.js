@@ -1,5 +1,5 @@
-import express from 'express';
-import {FetchModule} from 'microstar-track';
+const express = require('express');
+const {FetchModule} = require('microstar-track');
 
 let fetchModule;
 const router = express.Router();
@@ -29,4 +29,5 @@ const RouterConstructor = (config) => {
     return router;
 }
 
-export default RouterConstructor;
+
+module.exports = RouterConstructor;

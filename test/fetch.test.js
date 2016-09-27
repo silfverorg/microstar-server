@@ -1,6 +1,6 @@
-import request from 'supertest';
-import server from '../server';
-import should from 'should';
+const request = require('supertest');
+const server = require('../server');
+const should = require('should');
 
 describe('Fetch API Suite', () => {
     before(() => {

@@ -1,14 +1,16 @@
-import config from './config';
-import configTest from './config.test';
+const config = require('./config');
+const configTest = require('./config.test');
 
-var cases = {
+const cases = {
   'dev': config,
   'development': config,
   'test': configTest,
   'default': config,
 };
 
-export function getConfig(type) {
+function getConfig(type) {
   const t = type ? type.toLowerCase() : 'default';
   return cases[t];
 };
+
+exports.getConfig = getConfig;

@@ -1,6 +1,6 @@
-import request from 'supertest';
-import server from '../server';
-import pjson from '../package.json';
+const request = require('supertest');
+const server = require('../server');
+const pjson = require('../package.json');
 
 describe('Server Suite', () => {
     before(() => {

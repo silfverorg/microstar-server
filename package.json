@@ -4,10 +4,9 @@
   "description": "Server for microstar",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --compilers js:babel/register",
-    "start": "babel-node server.js",
-    "watch": "nodemon --exec npm run babel-node -- server.js",
-    "babel-node": "babel-node --stage 0"
+    "test": "NODE_ENV=test node_modules/mocha/bin/mocha",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +26,11 @@
     "ramda": "^0.17.1"
   },
   "devDependencies": {
+    "mocha": "^3.1.0",
     "should": "^7.1.0",
     "supertest": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   }
 }

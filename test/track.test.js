@@ -1,5 +1,5 @@
-import request from 'supertest';
-import server from '../server';
+const request = require('supertest');
+const server  = require('../server');
 
 describe('Track API Suite', () => {
     before(() => {
