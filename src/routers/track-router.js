@@ -1,5 +1,5 @@
 const express = require('express');
-const Microstar = require('microstar-track');
+const Microstar = require('microstar-track').default;
 
 let trackModule;
 const router = express.Router();
@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
 });
 
 const RouterConstructor = (config) => {
-  trackModule = new Microstar(config).trackModule;
+  trackModule = (new Microstar(config)).trackModule;
   return router;
 };
 
