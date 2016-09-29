@@ -1,5 +1,5 @@
 const express = require('express');
-const Microstar = require('microstar-track').default;
+const Microstar = require('microstar-track');
 
 let fetchModule;
 const router = express.Router();
