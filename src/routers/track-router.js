@@ -4,8 +4,8 @@ const Microstar = require('microstar-track');
 let trackModule;
 const router = express.Router();
 
-router.post('/', (req, res) => {
-  const body = req.body;
+router.get('/', (req, res) => {
+  const body = req.query;
   const event_name = body.event_name;
   const event_data = body.event_data;
   const keys = Object.keys(body);
@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   }
 
   if (!event_name) {
-    return res.status(400).json({
+    return res.status(400).jsonp({
       status: 400,
       error: 'Invalid event'
     });
@@ -26,10 +26,10 @@ router.post('/', (req, res) => {
   
   trackModule.track(event_name, event_data, _vars)
   .then((result) => {
-    res.json(result);
+    res.jsonp(result);
   })
   .catch((err) => {
-    res.status(500).json({
+    res.status(500).jsonp({
       status: 500,
       error: err
     });
