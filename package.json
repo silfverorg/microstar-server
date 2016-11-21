@@ -22,7 +22,7 @@
     "amqplib": "^0.4.2",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "microstar-track": "^1.0.0",
+    "microstar-track": "^1.1.0",
     "morgan": "^1.6.1",
     "ramda": "^0.17.1"
   },
